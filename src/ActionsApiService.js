@@ -7,15 +7,15 @@ export default class ActionsApiService {
 
   getActions() {
     const url = `${API_URL}/api/v1/actions/`;
-    return axios.get(url).then(response => response.data);
+    return axios.get(url, { crossdomain: true }).then(response => response.data);
   }
   getAction(id) {
     const url = `${API_URL}/api/v1/actions/${id}/`;
-    return axios.get(url).then(response => response.data);
+    return axios.get(url, { crossdomain: true }).then(response => response.data);
   }
   deleteAction(id) {
     const url = `${API_URL}/api/v1/actions/${id}/`;
-    return axios.delete(url);
+    return axios.delete(url, { crossdomain: true });
   }
   createAction(action) {
     const url = `${API_URL}/api/v1/actions/`;

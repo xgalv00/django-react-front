@@ -6,6 +6,7 @@ const actionsApiService = new ActionsApiService();
 export class ActionCreateUpdate extends Component {
   constructor(props) {
     super(props);
+    this.state = {name: '', description: '', completed: false};
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
@@ -14,9 +15,7 @@ export class ActionCreateUpdate extends Component {
     } = this.props;
     if (params && params.id) {
       actionsApiService.getAction(params.id).then(action => {
-        this.refs.title.value = action.title;
-        this.refs.description.value = action.description;
-        this.refs.completed.value = action.completed;
+        this.setState({...action});
       });
     }
   }
@@ -34,9 +33,9 @@ export class ActionCreateUpdate extends Component {
   handleCreate() {
     actionsApiService
       .createAction({
-        title: this.refs.title.value,
-        description: this.refs.description.value,
-        completed: this.refs.completed.checked
+        name: this.state.name,
+        description: this.state.description,
+        completed: this.state.completed
       })
       .then(() => {
         alert("Action Created ");
@@ -51,9 +50,9 @@ export class ActionCreateUpdate extends Component {
     actionsApiService
       .updateAction({
         id: id,
-        title: this.refs.title.value,
-        description: this.refs.description.value,
-        completed: this.refs.completed.checked
+        name: this.state.name,
+        description: this.state.description,
+        completed: this.state.completed
       })
       .then(() => {
         alert("Action updated!");
@@ -69,15 +68,18 @@ export class ActionCreateUpdate extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>Name:</label>
-            <input type="text" className="form-control" ref="title" />
+            <input type="text" className="form-control"
+                   onChange={(e) => this.setState({name: e.target.value})}/>
           </div>
           <div className="form-group">
             <label>Description:</label>
 
-            <input type="text" className="form-control" ref="description" />
+            <input type="text" className="form-control"
+                   onChange={(e) => this.setState({description: e.target.value})}/>
           </div>
           <div className="form-group">
-            <input type="checkbox" ref="completed" />
+            <input type="checkbox"
+                   onChange={(e) => this.setState({completed: e.target.value})}/>
             <label className="p-2">Completed</label>
           </div>
           <button className="btn btn-primary" type="submit">
