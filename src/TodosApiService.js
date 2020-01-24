@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = `http://api--${window.location.hostname}`;
+const API_URL = `${window.location.protocol}//api--${window.location.hostname}`;
 
 export default class TodosApiService {
   constructor() {}
