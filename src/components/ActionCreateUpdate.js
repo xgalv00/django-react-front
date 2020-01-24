@@ -68,18 +68,20 @@ export class ActionCreateUpdate extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>Name:</label>
-            <input type="text" className="form-control"
+            <input type="text" className="form-control" value={this.state.name}
                    onChange={(e) => this.setState({name: e.target.value})}/>
           </div>
           <div className="form-group">
             <label>Description:</label>
 
-            <input type="text" className="form-control"
+            <input type="text" className="form-control" value={this.state.description}
                    onChange={(e) => this.setState({description: e.target.value})}/>
           </div>
           <div className="form-group">
-            <input type="checkbox"
-                   onChange={(e) => this.setState({completed: e.target.value})}/>
+            <input type="checkbox" checked={this.state.completed}
+                   onChange={(e) =>
+                     this.setState({completed: e.target.checked})
+                   }/>
             <label className="p-2">Completed</label>
           </div>
           <button className="btn btn-primary" type="submit">
