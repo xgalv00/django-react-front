@@ -1,0 +1,11 @@
+version: '3.2'
+services:
+  frontend:
+    build: ./
+    ports:
+      - 80:3000
+
+  backend:
+    image: ${SQUASH_REGISTRY}:django-react-todo-back-default-{SQUASH_MATCH_BRANCH}-backend
+    ports:
+      - 8000:8000
