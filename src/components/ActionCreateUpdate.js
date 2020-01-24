@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import TodosApiService from "../../src/TodosApiService";
+import ActionsApiService from "../../src/ActionsApiService";
 
-const todosApiService = new TodosApiService();
+const actionsApiService = new ActionsApiService();
 
-export class TodoCreateUpdate extends Component {
+export class ActionCreateUpdate extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -13,10 +13,10 @@ export class TodoCreateUpdate extends Component {
       match: { params }
     } = this.props;
     if (params && params.id) {
-      todosApiService.getTodo(params.id).then(todo => {
-        this.refs.title.value = todo.title;
-        this.refs.description.value = todo.description;
-        this.refs.completed.value = todo.completed;
+      actionsApiService.getAction(params.id).then(action => {
+        this.refs.title.value = action.title;
+        this.refs.description.value = action.description;
+        this.refs.completed.value = action.completed;
       });
     }
   }
@@ -32,14 +32,14 @@ export class TodoCreateUpdate extends Component {
     }
   }
   handleCreate() {
-    todosApiService
-      .createTodo({
+    actionsApiService
+      .createAction({
         title: this.refs.title.value,
         description: this.refs.description.value,
         completed: this.refs.completed.checked
       })
       .then(() => {
-        alert("Todo Created ");
+        alert("Action Created ");
       })
 
       .catch(() => {
@@ -48,15 +48,15 @@ export class TodoCreateUpdate extends Component {
   }
 
   handleUpdate(id) {
-    todosApiService
-      .updateTodo({
+    actionsApiService
+      .updateAction({
         id: id,
         title: this.refs.title.value,
         description: this.refs.description.value,
         completed: this.refs.completed.checked
       })
       .then(() => {
-        alert("Todo updated!");
+        alert("Action updated!");
       })
       .catch(() => {
         alert("Error! Please check your form.");
@@ -68,7 +68,7 @@ export class TodoCreateUpdate extends Component {
       <div className="container mt-4">
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label>Title:</label>
+            <label>Name:</label>
             <input type="text" className="form-control" ref="title" />
           </div>
           <div className="form-group">
@@ -89,4 +89,4 @@ export class TodoCreateUpdate extends Component {
   }
 }
 
-export default TodoCreateUpdate;
+export default ActionCreateUpdate;
