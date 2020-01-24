@@ -1,0 +1,7 @@
+deployments:
+  default:
+    pipelines:
+      - front:
+          always_build_images: true
+          scripts:
+            - npm run test
