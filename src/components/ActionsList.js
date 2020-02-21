@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ActionsApiService from "../../src/ActionsApiService";
+import { Link } from "react-router-dom";
 
 const actionsApiService = new ActionsApiService();
 
@@ -56,6 +57,7 @@ class ActionList extends Component {
             ))}
           </tbody>
         </table>
+        <Link to="/create/" className="btn btn-default">Create Actions</Link>
       </div>
     );
   }

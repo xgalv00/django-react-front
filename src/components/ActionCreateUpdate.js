@@ -38,7 +38,7 @@ export class ActionCreateUpdate extends Component {
         completed: this.state.completed
       })
       .then(() => {
-        alert("Action Created ");
+        this.props.history.push('/');
       })
 
       .catch(() => {
@@ -55,7 +55,7 @@ export class ActionCreateUpdate extends Component {
         completed: this.state.completed
       })
       .then(() => {
-        alert("Action updated!");
+        this.props.history.push('/');
       })
       .catch(() => {
         alert("Error! Please check your form.");
