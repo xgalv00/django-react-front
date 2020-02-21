@@ -57,7 +57,7 @@ class ActionList extends Component {
             ))}
           </tbody>
         </table>
-        <Link to="/create/" className="btn btn-default">Create Actions</Link>
+        <Link to="/create/" className="btn btn-primary m-5">Create Actions</Link>
       </div>
     );
   }
