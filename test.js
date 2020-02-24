@@ -55,7 +55,8 @@ test('create full', async t => {
         .click('#create')
         .expect(getLocation()).contains('create');
     await t
-        .typeText(Selector('#name'), 'name')
+        .typeText(Selector('#name'), 'name');
+    await t
         .typeText(Selector('#description'), 'description')
         .click('#submit')
         .expect(getLocation()).contains('/');
