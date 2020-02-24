@@ -32,7 +32,7 @@ fixture `E2E tests, edit`
 test('edit', async t => {
     await t
         .click('.update')
-        .expect(getLocation()).contains('actions')
+        .expect(getLocation()).contains('actions');
     await t
         .typeText(Selector('input.form-control'), 'updated')
         .click('#submit')
@@ -49,3 +49,18 @@ test('delete', async t => {
     await t
         .expect(updateLink.count).eql(0);
 });
+
+test('create full', async t => {
+    await t
+        .click('#create')
+        .expect(getLocation()).contains('create');
+    await t
+        .typeText(Selector('#name'), 'name')
+        .typeText(Selector('#description'), 'description')
+        .click('#submit')
+        .expect(getLocation()).contains('/');
+    const updateLink = Selector('.update');
+    await t
+        .expect(updateLink.count).eql(1);
+});
+
