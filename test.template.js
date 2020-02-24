@@ -1,7 +1,7 @@
 import { Selector } from 'testcafe';
 
 fixture `Getting Started`
-    .page `http://localhost/`;
+    .page `$PAGE`;
 
 test('test', async t => {
     // Test code
