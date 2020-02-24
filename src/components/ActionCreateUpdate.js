@@ -68,7 +68,7 @@ export class ActionCreateUpdate extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>Name:</label>
-            <input type="text" className="form-control" id"name" value={this.state.name}
+            <input type="text" className="form-control" id="name" value={this.state.name}
                    onChange={(e) => this.setState({name: e.target.value})}/>
           </div>
           <div className="form-group">
