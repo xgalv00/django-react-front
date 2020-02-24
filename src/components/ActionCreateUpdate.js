@@ -84,7 +84,7 @@ export class ActionCreateUpdate extends Component {
                    }/>
             <label className="p-2">Completed</label>
           </div>
-          <button className="btn btn-primary" type="submit">
+          <button className="btn btn-primary" type="submit" id='submit'>
             Submit
           </button>
         </form>

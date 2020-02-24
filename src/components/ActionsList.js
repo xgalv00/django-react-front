@@ -48,16 +48,16 @@ class ActionList extends Component {
                 <td>{action.description}</td>
                 <td>{action.completed ? "Yes" : "No"}</td>
                 <td>
-                  <button onClick={() => this.handleDelete(action.id)}>
+                  <button className='delete' onClick={() => this.handleDelete(action.id)}>
                     Delete
                   </button>
-                  <a href={`/actions/${action.id}/`}>Update</a>
+                  <a className='update' href={`/actions/${action.id}/`}>Update</a>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-        <Link to="/create/" className="btn btn-primary m-5">Create Actions</Link>
+        <Link to="/create/" className="btn btn-primary m-5" id='create'>Create Actions</Link>
       </div>
     );
   }
