@@ -3,11 +3,7 @@ deployments:
     port_forwarding: 80:3000
     filename: Dockerfile
     dockerfileonly: true
-    pipelines:
-      - front:
-          always_build_images: true
-          scripts:
-            - npm run test
+
   reversed:
     subdomain_port_mapping:
       - api:8000
