@@ -14,10 +14,12 @@ fixture `E2E tests, create page`
     .page `https://${process.env.SQUASH_DOMAIN}/create/`;
 
 test('create', async t => {
-    const input = Selector('input.form-control');
     await t
-        .typeText(input, 'test')
-        .expect(input.value).eql('test');
+        .typeText(Selector('#name'), 'test')
+        .expect(Selector('#name').value).eql('test');
+    await t
+        .typeText(Selector('#description'), 'test')
+        .expect(Selector('#description').value).eql('test');
     await t
         .click('#submit')
         .expect(getLocation()).contains('/');
@@ -42,14 +44,6 @@ test('edit', async t => {
         .expect(updateLink.count).eql(1);
 });
 
-test('delete', async t => {
-    await t
-        .click('.delete');
-    const updateLink = Selector('.update');
-    await t
-        .expect(updateLink.count).eql(0);
-});
-
 test('create full', async t => {
     await t
         .click('#create')
@@ -62,6 +56,15 @@ test('create full', async t => {
         .expect(getLocation()).contains('/');
     const updateLink = Selector('.update');
     await t
-        .expect(updateLink.count).eql(1);
+        .expect(updateLink.count).eql(2);
 });
 
+test('delete', async t => {
+    await t
+        .click('.delete');
+    await t
+        .click('.delete');
+    const updateLink = Selector('.update');
+    await t
+        .expect(updateLink.count).eql(0);
+});
