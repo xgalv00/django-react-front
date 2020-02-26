@@ -2,7 +2,7 @@ import { Selector, ClientFunction } from 'testcafe';
 const getLocation = ClientFunction(() => document.location.href);
 
 fixture `E2E tests, home page`
-    .page `https://${process.env.SQUASH_DOMAIN}/`;
+    .page `https://${process.env.HOSTNAME}/`;
 
 test('create', async t => {
     await t
@@ -11,7 +11,7 @@ test('create', async t => {
 });
 
 fixture `E2E tests, create page`
-    .page `https://${process.env.SQUASH_DOMAIN}/create/`;
+    .page `https://${process.env.HOSTNAME}/create/`;
 
 test('create', async t => {
     await t
@@ -29,7 +29,7 @@ test('create', async t => {
 });
 
 fixture `E2E tests, edit`
-    .page `https://${process.env.SQUASH_DOMAIN}/`;
+    .page `https://${process.env.HOSTNAME}/`;
 
 test('edit', async t => {
     await t
