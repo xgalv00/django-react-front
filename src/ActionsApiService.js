@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = `${window.location.protocol}//api--${window.location.hostname}`;
+const API_URL = `${window.location.protocol}//decoupled-backend-fshuy.squash.io`;
 
 export default class ActionsApiService {
   constructor() {}
