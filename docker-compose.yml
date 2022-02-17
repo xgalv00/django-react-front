@@ -4,8 +4,6 @@ services:
     build: ./
     ports:
       - 80:3000
-
-  backend:
-    image: ${SQUASH_REGISTRY}:django-react-back-default-{SQUASH_MATCH_BRANCH}-backend
-    ports:
-      - 8000:8000
+    environment:
+      - TODO_API
+      - TODO_API_HARD
