@@ -6,4 +6,4 @@ services:
       - 80:3000
     environment:
       - TODO_API
-      - TODO_API_HARD
+      - TODO_API_HARD=${TODO_API_HARD}
