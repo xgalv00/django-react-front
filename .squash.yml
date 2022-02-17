@@ -4,3 +4,4 @@ deployments:
     depends_on:
       - TODO_API:
           app: django-react-back/decoupled_backend
+          subdomain: test
