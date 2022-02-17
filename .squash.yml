@@ -1,3 +1,6 @@
 deployments:
   default:
     filename: docker-compose.yml
+    depends_on:
+      - TODO_API:
+          app: django-react-back/decoupled_backend
